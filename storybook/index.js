@@ -14,8 +14,7 @@ addDecorator(withKnobs);
 
 // import stories
 configure(() => {
-  // loadStories();
-  require('../src/components/atom/LottieView/index.stories')
+  loadStories();
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters
