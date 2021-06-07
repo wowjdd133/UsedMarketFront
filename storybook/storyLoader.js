@@ -5,9 +5,13 @@
 
 function loadStories() {
   require('../src/components/atom/LottieView/index.stories');
+  require('../src/components/atom/Text/index.stories');
 }
 
-const stories = ['../src/components/atom/LottieView/index.stories'];
+const stories = [
+  '../src/components/atom/LottieView/index.stories',
+  '../src/components/atom/Text/index.stories',
+];
 
 module.exports = {
   loadStories,
