@@ -59,7 +59,7 @@
       "searchDir": [
         "./src/components"
       ],
-      "pattern": "**/*.stories.js",
+      "pattern": "**/*.stories.tsx",
       "outputFile": "./storybook/storyLoader.js"
     }
   }
