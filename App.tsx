@@ -7,12 +7,17 @@
  */
 
 import React from 'react';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/styles/theme';
 
 import StoryBookUIRoot from './storybook';
 
 const App = () => {
   return (
-    <StoryBookUIRoot/>
+    <ThemeProvider theme={theme}>
+      <StoryBookUIRoot/>
+    </ThemeProvider>
+    
   )
 }
 
