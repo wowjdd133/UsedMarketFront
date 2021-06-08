@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native'
+import WrapperComponent from '../../common/Wrapper';
 
 interface TextStyleProps {
     size: 'small' | 'medium' | 'big'
@@ -18,16 +19,14 @@ interface TextProps {
 
 const TextComponent = ({text, style}:TextProps) => {
     return(
-        <TextWrapper
+        <WrapperComponent
             style={style.wrapperStyle}
         >
             <Text 
             {...style.textStyle}>{text}</Text>
-        </TextWrapper>
+        </WrapperComponent>
     )
 }
-
-const TextWrapper = styled.View``
 
 const Text = styled.Text<TextStyleProps>`
     font-size: ${(props) => {
