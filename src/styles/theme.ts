@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
 export const fontSizes:FontSizesType = {
-    title: '22px',
-    subtitle: '15px',
-    paragraph: '11px'
+    title: '32px',
+    subtitle: '19px',
+    paragraph: '13px'
 }
 
 export const colors:ColorsType = {
@@ -11,7 +11,8 @@ export const colors:ColorsType = {
     grey: '#999999',
     green: '#3cb46e',
     blue: '#000080',
-    orange: '#EF6405'
+    orange: '#EF6405',
+    white: '#FFFFFF'
 }
 
 export const commons:CommonsType = {
@@ -19,6 +20,12 @@ export const commons:CommonsType = {
         justify-contents: center;
         align-items: center;
     `
+}
+
+export enum SizeType {
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    BIG = 'big'
 }
 
 export interface FontSizesType {
@@ -32,7 +39,8 @@ export interface ColorsType {
     grey: string;
     green: string;
     blue: string;
-    orange: string
+    orange: string;
+    white: string;
 }
 
 export interface CommonsType {
