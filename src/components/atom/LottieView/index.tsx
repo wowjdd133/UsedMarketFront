@@ -5,6 +5,12 @@ import WrapperComponent from '../../common/Wrapper';
 
 type Lottie = 'location-on-pin'
 
+export interface LottieExportType {
+    name: Lottie;
+    autoPlay?: boolean;
+    loop?: boolean;
+}
+
 interface LottieArray {
     name: Lottie;
     source: any;
