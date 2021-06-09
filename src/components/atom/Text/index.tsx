@@ -3,13 +3,21 @@ import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native'
 import WrapperComponent from '../../common/Wrapper';
 
-interface TextStyleProps {
+export interface TextStyleProps {
     size: 'small' | 'medium' | 'big'
     color: string;
     weight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
 }
 
-interface TextProps {
+export interface TextExportType {
+    text: string;
+}
+
+export interface TextExportStyleType {
+    textStyle: TextStyleProps;
+}
+
+export interface TextAtomProps {
     text: string;
     style: {
         textStyle: TextStyleProps;
@@ -17,7 +25,7 @@ interface TextProps {
     }
 }
 
-const TextComponent = ({text, style}:TextProps) => {
+const TextAtom = ({text, style}:TextAtomProps) => {
     return(
         <WrapperComponent
             style={style.wrapperStyle}
@@ -40,4 +48,4 @@ const Text = styled.Text<TextStyleProps>`
     font-weight: ${props => props.weight ? props.weight : 'normal'}
 `
 
-export default TextComponent;
+export default TextAtom;

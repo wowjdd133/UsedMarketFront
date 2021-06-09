@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 
 export const fontSizes:FontSizesType = {
     title: '32px',
-    subtitle: '19px',
-    paragraph: '13px'
+    subtitle: '20px',
+    paragraph: '16px'
 }
 
 export const colors:ColorsType = {
@@ -11,7 +11,7 @@ export const colors:ColorsType = {
     grey: '#999999',
     green: '#3cb46e',
     blue: '#000080',
-    orange: '#EF6405',
+    orange: '#FF8A3C',
     white: '#FFFFFF'
 }
 
