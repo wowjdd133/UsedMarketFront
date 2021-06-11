@@ -1,9 +1,66 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import DistrictListTemplate from '../../components/template/districtList/index';
+import Geolocation from 'react-native-geolocation-service';
+import { PERMISSIONS, request, RESULTS } from 'react-native-permissions';
+import { Platform } from 'react-native';
 
 const DistrictScreen = () => {
+
     const navigation = useNavigation();
+
+    // const [geoloNotFound, setGeoloNotFound]
+
+    const getCurrentPosition = React.useCallback(() => {
+        if(askGeoloPermission()) {
+            
+            Geolocation.getCurrentPosition(
+                (position) => {
+                    console.log(position)
+                },
+                (error) => {
+                    console.log({
+                        code: error.code, 
+                        message: error.message
+                    });
+                },
+                { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
+            )
+        } else {
+
+        }
+    }, []);
+
+    const askGeoloPermission = React.useCallback(async () => {
+        try {
+            if(Platform.OS === 'ios') {
+                try {
+                    Geolocation.requestAuthorization('always')
+                } catch (err) {
+                    console.log({
+                        err
+                    });
+                }
+            } else {
+                const result = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+            
+                if(result === RESULTS.GRANTED) {
+                    return true;
+                }
+                
+                return false;
+            }
+        } catch (err) {
+            console.log({
+                err
+            });
+            return false;
+        }
+    }, []);
+
+    React.useEffect(() => {
+        getCurrentPosition();
+    }, []);
 
     return (
         <DistrictListTemplate
@@ -57,7 +114,9 @@ const DistrictScreen = () => {
                 name: "서울 마포구 대흥동"
             }]}
             onPress={() => {}}
-            onPressButton={() => {}} 
+            onPressButton={() => {
+                getCurrentPosition()
+            }} 
         />
     )
 }
