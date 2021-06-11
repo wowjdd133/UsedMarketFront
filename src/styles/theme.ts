@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 export const fontSizes:FontSizesType = {
     title: '32px',
     subtitle: '20px',
-    paragraph: '16px'
+    paragraph: '16px',
+    subParagraph: '13px'
 }
 
 export const colors:ColorsType = {
@@ -25,13 +26,15 @@ export const commons:CommonsType = {
 export enum SizeType {
     SMALL = 'small',
     MEDIUM = 'medium',
-    BIG = 'big'
+    BIG = 'big',
+    MORE_SMALL = 'moreSmall'
 }
 
 export interface FontSizesType {
     title: string;
     subtitle: string;
     paragraph: string;
+    subParagraph: string;
 }
 
 export interface ColorsType {

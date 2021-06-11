@@ -7,7 +7,7 @@ const IntroScreen = () => {
     const navigation = useNavigation();
 
     const handlePressButton = React.useCallback(() => {
-        navigation.navigate('districtScreen');
+        navigation.navigate('District');
     },[navigation]);
 
     return(
