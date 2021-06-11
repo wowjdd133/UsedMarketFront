@@ -1,27 +1,31 @@
 import React from 'react';
-import { FlatList, ListRenderItem, StyleProp, ViewProps } from 'react-native';
+import { FlatList, ListRenderItem, StyleProp, ViewStyle } from 'react-native';
 import WrapperComponent from '../../common/Wrapper';
 
 interface FlatListAtomType {
-    wrapperStyle: StyleProp<ViewProps>
+    wrapperStyle: StyleProp<ViewStyle>
     data: any[] | undefined;
     keyExtractor?: ((item: any, index: number) => string) | undefined
     renderItem: ListRenderItem<any> | null | undefined;
+    ListHeaderComponent?: React.ComponentType<any> | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined;
 }
 
-const FlatListAtom = ({ wrapperStyle, data, renderItem, keyExtractor }:FlatListAtomType) => {
+const FlatListAtom = ({ wrapperStyle, data, renderItem, keyExtractor, ListHeaderComponent }:FlatListAtomType) => {
     return (
         <WrapperComponent
             style={wrapperStyle}
         >
             <FlatList
                 style={{
-                    width:'100%',
-                    height: '100%'
+                    height: '100%',
+                }}
+                contentContainerStyle={{
+                    flexGrow: 1 
                 }}
                 data={data}
                 keyExtractor={keyExtractor}
                 renderItem={renderItem}
+                ListHeaderComponent={ListHeaderComponent}
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
             />
