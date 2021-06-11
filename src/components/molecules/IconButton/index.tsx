@@ -23,9 +23,6 @@ const IconButtonMolecules = ({button, icon, text, isIconRight = false, wrapperSt
         <ButtonAtom
             style={{
                 buttonStyle: button.buttonStyle,
-                wrapperStyle: {
-                    flexDirection:'row'
-                }
             }} 
             {...button}
         >

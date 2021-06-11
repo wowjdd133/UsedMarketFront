@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import IconButtonMolecules from './index';
-import { colors } from '../../../styles/theme';
+import { colors, SizeType } from '../../../styles/theme';
 
 
 storiesOf('IconButton', module)
@@ -27,7 +27,7 @@ storiesOf('IconButton', module)
             text: "button",
             textStyle: { 
                 color: colors.black,
-                size: 'medium',
+                size: SizeType.MEDIUM,
             }
         }}
     />)

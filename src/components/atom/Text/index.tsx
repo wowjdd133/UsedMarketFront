@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import styled from 'styled-components/native'
+import { SizeType } from '../../../styles/theme';
 import WrapperComponent from '../../common/Wrapper';
 
 export interface TextStyleProps {
-    size: 'small' | 'medium' | 'big'
+    size: SizeType;
     color: string;
     weight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
 }
@@ -41,6 +42,7 @@ const Text = styled.Text<TextStyleProps>`
         if(props.size === 'small') return props.theme.fontSizes.paragraph
         else if(props.size === 'medium') return props.theme.fontSizes.subtitle
         else if(props.size === 'big') return props.theme.fontSizes.title
+        else if(props.size === 'moreSmall') return props.theme.fontSizes.subParagraph
     }};
 
     color: ${props => props.color};
