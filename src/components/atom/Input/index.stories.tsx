@@ -13,7 +13,10 @@ storiesOf('Input', module)
                 height: 36,
                 borderBottomWidth:1,
                 borderBottomColor: colors.orange,
-                backgroundColor: colors.green
+            }}
+            value=''
+            onChange={(text:string) => {
+                console.log(text);
             }}
         />
     )
