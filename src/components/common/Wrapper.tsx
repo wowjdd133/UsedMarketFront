@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { StyleProp, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface WrapperType {
     style: StyleProp<ViewStyle>;
     isCenter?: boolean;
     isTouchable?: boolean;
+    isSafeArea?: boolean
     onPress?: (props:any) => void;
     children: React.ReactNode;
 }
 
-const WrapperComponent = ({style, isCenter = false, children, isTouchable = false, onPress}: WrapperType) => {
+const WrapperComponent = ({style, isCenter = false, children, isTouchable = false, onPress, isSafeArea = false}: WrapperType) => {
 
-    const Component = isTouchable ? TouchableOpacity : View;
+    const Component = isTouchable ? TouchableOpacity : isSafeArea ? SafeAreaView : View;
 
     const Wrapper = styled(Component)<{
         isCenter: boolean
