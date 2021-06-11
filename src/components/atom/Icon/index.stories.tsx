@@ -15,3 +15,25 @@ storiesOf("Icon", module)
             alignItems:'center'
         }
     }} />)
+    .add("search", () => <IconComponent name="search" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)
+    .add("left-arrow", () => <IconComponent name="left-arrow" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)

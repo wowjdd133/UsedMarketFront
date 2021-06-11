@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import WrapperComponent from '../../common/Wrapper';
 
 export interface IconExportType {
-    name: string;
+    name: ImageName;
     onPress?: (props:any) => void;
 }
 
@@ -13,7 +13,7 @@ export interface IconExportStypeType {
 }
 
 interface IconProps {
-    name: string;
+    name: ImageName;
     onPress?: (props:any) => void;
     style: IconStyleProps;
 }
@@ -23,21 +23,43 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
+type ImageName = "user-profile" | "search" | "left-arrow";
+
+interface ImageArray {
+    name: ImageName;
+    uri: any;
+}
+
+//추가 안해도 되는 방법 있을지.
+
 const IconAtom = ({ name, style, onPress }:IconProps) => {
 
-    const images = [{
+    const images:ImageArray[] = [{
         name: "user-profile",
         uri: require('../../../assets/icons/user-profile.png')
+    }, {
+        name: "search",
+        uri: require('../../../assets/icons/search.png')
+    }, {
+        name: 'left-arrow',
+        uri: require('../../../assets/icons/left-arrow.png')
     }];
+
+    const getUri = (name:string) => {
+        return images.filter((i) => i.name === name)[0].uri;
+    }
 
     return (
         <WrapperComponent
-            isTouchable={true}
+            isTouchable={onPress ? true : false}
             style={style.wrapperStyle}
         >
             <Icon
-                style={style.iconStyle}
-                source={images[0].uri}
+                style={style.iconStyle ?? {
+                    width: 20,
+                    height: 20
+                }}
+                source={getUri(name)}
             />        
         </WrapperComponent>
     )
