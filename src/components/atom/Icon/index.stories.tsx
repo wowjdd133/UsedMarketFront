@@ -37,3 +37,14 @@ storiesOf("Icon", module)
             alignItems:'center'
         }
     }} />)
+    .add("target", () => <IconComponent name="target" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)

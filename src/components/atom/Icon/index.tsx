@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-type ImageName = "user-profile" | "search" | "left-arrow";
+type ImageName = "user-profile" | "search" | "left-arrow" | "target";
 
 interface ImageArray {
     name: ImageName;
@@ -43,6 +43,9 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
     }, {
         name: 'left-arrow',
         uri: require('../../../assets/icons/left-arrow.png')
+    }, {
+        name: 'target',
+        uri: require('../../../assets/icons/target.png')
     }];
 
     const getUri = (name:string) => {
