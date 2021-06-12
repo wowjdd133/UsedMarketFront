@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-type ImageName = "user-profile" | "search" | "left-arrow" | "target";
+type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document";
 
 interface ImageArray {
     name: ImageName;
@@ -46,15 +46,22 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
     }, {
         name: 'target',
         uri: require('../../../assets/icons/target.png')
+    }, {
+        name: 'find-document',
+        uri: require('../../../assets/icons/find-document.png')
+    }, {
+        name: 'home',
+        uri: require('../../../assets/icons/home.png')
     }];
 
     const getUri = (name:string) => {
         return images.filter((i) => i.name === name)[0].uri;
     }
-
+    
     return (
         <WrapperComponent
             isTouchable={onPress ? true : false}
+            onPress={onPress}
             style={style.wrapperStyle}
         >
             <Icon
