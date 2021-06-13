@@ -14,29 +14,42 @@ interface WrapperType {
 
 const WrapperComponent = ({style, isCenter = false, children, isTouchable = false, onPress, isSafeArea = false}: WrapperType) => {
 
-    const Component = isTouchable ? TouchableOpacity : isSafeArea ? SafeAreaView : View;
-
-    const Wrapper = styled(Component)<{
-        isCenter: boolean
-        onPress?: (props:any) => void;
-    }>`
-        ${props => props.isCenter ? `
-            justify-content: center;
-            align-items: center;
-        ` : ''}
-    `
-
-    return (
-        <Wrapper
-            onPress={onPress}
+    return isSafeArea ? (
+        <SafeAreaWrapper
             style={style}
             isCenter={isCenter}
+        >
+            {children}
+        </SafeAreaWrapper>
+    ) : (
+        <Wrapper
+            style={style}
+            isCenter={isCenter}
+            onPress={onPress}
+            disabled={onPress ? true : false}
         >
             {children}
         </Wrapper>
     )
 }
 
+const Wrapper = styled.TouchableOpacity<{
+    isCenter: boolean
+}>`
+    ${props => props.isCenter ? `
+        justify-content: center;
+        align-items: center;
+    ` : ''}
+`
+
+const SafeAreaWrapper = styled.SafeAreaView<{
+    isCenter: boolean
+}>`
+    ${props => props.isCenter ? `
+        justify-content: center;
+        align-items: center;
+    ` : ''}
+`
 
 
 export default WrapperComponent;
