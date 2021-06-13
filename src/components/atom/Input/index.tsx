@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ComponentType, createRef, ForwardRefExoticComponent, RefAttributes, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
 import WrapperComponent from '../../common/Wrapper';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextInputProps, ViewStyle, TextInput } from 'react-native';
 
 export interface InputExportType {
     placeholder?: string;
     value: string;
     onChange: (text:string) => void;
+    focus?: boolean;
 }
 
 export interface InputExportStyleType {
@@ -17,15 +18,26 @@ interface InputProps {
     wrapperStyle: StyleProp<ViewStyle>
     placeholder?: string;
     value: string;
+    focus?: boolean;
     onChange: (text:string) => void;
 }
 
-const InputAtom = ({ wrapperStyle, placeholder, onChange, value }:InputProps) => {
+const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus }:InputProps) => {
+
+    const inputRef = createRef<TextInput>();
+
+    useLayoutEffect(() => {
+        if(focus) {
+            inputRef.current?.focus();
+        }
+    }, [focus])
+
     return (
         <WrapperComponent
             style={wrapperStyle}
         >
             <Input 
+                ref={inputRef}
                 onChangeText={onChange}
                 value={value}
                 placeholder={placeholder ?? undefined}
@@ -42,4 +54,4 @@ const Input = styled.TextInput`
     height: 100%;
 `
 
-export default InputAtom;
+export default React.memo(InputAtom);
