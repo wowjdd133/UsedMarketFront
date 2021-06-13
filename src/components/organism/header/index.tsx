@@ -17,13 +17,13 @@ const HeaderOrganism = ({
     title
 }:HeaderType) => {
 
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const handlePressLeftButton = React.useCallback(() => {
-        console.log(1);
-        // navigation.goBack();
-    // }, [navigation])
-    }, [])
+        // console.log(1);
+        navigation.goBack();
+    }, [navigation])
+    // }, [])
 
     return (
         <Header>
