@@ -10,15 +10,20 @@ interface ErrorBoxType {
     iconName: ImageName;
     errorText: string;
     touchableText: string;
-    onPressText: () => void;
+    onPressText?: () => void;
     wrapperStyle?: StyleProp<ViewStyle>
 }
 
 const ErrorBox = ({iconName, errorText, touchableText, onPressText, wrapperStyle}:ErrorBoxType) => {
     return (
         <WrapperComponent
-            style={wrapperStyle}
-            isCenter
+            style={wrapperStyle ?? {
+                backgroundColor:colors.white,
+                flex: 1 ,
+                justifyContent:'center',
+                alignItems:'center'    
+            }}
+
         >
             <IconAtom
                 style={{
@@ -26,9 +31,6 @@ const ErrorBox = ({iconName, errorText, touchableText, onPressText, wrapperStyle
                         width: 50,
                         height: 50
                     },
-                    wrapperStyle: {
-                        marginTop: 20
-                    }
                 }}
                 name={iconName}
             />
@@ -40,7 +42,7 @@ const ErrorBox = ({iconName, errorText, touchableText, onPressText, wrapperStyle
                         center: true
                     },
                     wrapperStyle: {
-                        marginTop: 15,
+                        marginTop: 25,
                         
                     }
                 }}

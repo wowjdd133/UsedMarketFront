@@ -12,7 +12,7 @@ export interface DistrictListOrganismDataType {
 }
 
 export interface DistrictListOrganismType {
-    data: DistrictListOrganismDataType[];
+    data?: DistrictListOrganismDataType[];
     onPress: (item:DistrictListOrganismDataType | any) => void;
 }
 
