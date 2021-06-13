@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document";
+export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document";
 
 interface ImageArray {
     name: ImageName;
@@ -78,4 +78,4 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
 const Icon = styled.Image``
 
 
-export default IconAtom;
+export default React.memo(IconAtom);

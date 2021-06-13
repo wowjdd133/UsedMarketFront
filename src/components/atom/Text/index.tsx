@@ -7,31 +7,36 @@ import WrapperComponent from '../../common/Wrapper';
 export interface TextStyleProps {
     size: SizeType;
     color: string;
+    center?: boolean;
     weight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
 }
 
 export interface TextExportType {
     text: string;
+    onPress?: () => void;
 }
 
 export interface TextExportStyleType {
-    textStyle: TextStyleProps;
+    textStyle: TextStyleProps; 
 }
 
 export interface TextAtomProps {
     text: string;
+    onPress?: () => void;
     style: {
         textStyle: TextStyleProps;
         wrapperStyle?: StyleProp<ViewStyle> 
     }
 }
 
-const TextAtom = ({text, style}:TextAtomProps) => {
+const TextAtom = ({text, style, onPress}:TextAtomProps) => {
     return(
         <WrapperComponent
             style={style.wrapperStyle}
+            isTouchable={onPress ? true : false}
+            onPress={onPress}
         >
-            <Text 
+            <Text
             {...style.textStyle}>{text}</Text>
         </WrapperComponent>
     )
@@ -45,9 +50,11 @@ const Text = styled.Text<TextStyleProps>`
         else if(props.size === 'moreSmall') return props.theme.fontSizes.subParagraph
     }};
 
+    ${(props) => props.center ? 'text-align: center;' : ''}
+
     color: ${props => props.color};
 
     font-weight: ${props => props.weight ? props.weight : 'normal'}
 `
 
-export default TextAtom;
+export default React.memo(TextAtom);

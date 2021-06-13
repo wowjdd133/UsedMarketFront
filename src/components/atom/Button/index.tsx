@@ -100,4 +100,4 @@ const Button = styled.TouchableOpacity<ButtonStyleProps>`
     align-items: center;
 `
 
-export default ButtonAtom;
+export default React.memo(ButtonAtom);

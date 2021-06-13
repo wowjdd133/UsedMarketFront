@@ -44,4 +44,4 @@ const LottieComponent = ({name, autoPlay = true, loop = true, style}:LottieProp)
     )
 }
 
-export default LottieComponent;
+export default React.memo(LottieComponent);
