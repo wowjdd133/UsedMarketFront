@@ -48,3 +48,14 @@ storiesOf("Icon", module)
             alignItems:'center'
         }
     }} />)
+    .add("target-question-mark", () => <IconComponent name="target-question-mark" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)

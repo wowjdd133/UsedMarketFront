@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document";
+export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document" | "target-question-mark";
 
 interface ImageArray {
     name: ImageName;
@@ -52,6 +52,9 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
     }, {
         name: 'home',
         uri: require('../../../assets/icons/home.png')
+    }, {
+        name: 'target-question-mark',
+        uri: require('../../../assets/icons/target-question-mark.png')
     }];
 
     const getUri = (name:string) => {
