@@ -26,7 +26,7 @@ const WrapperComponent = ({style, isCenter = false, children, isTouchable = fals
             style={style}
             isCenter={isCenter}
             onPress={onPress}
-            disabled={onPress ? true : false}
+            disabled={onPress ? false : true}
         >
             {children}
         </Wrapper>
