@@ -17,7 +17,7 @@
 # 현재 완성된 스크린
  - Intro
     * 로그인 전 인트로
-    * ![Uploading Simulator Screen Recording - iPhone 12 - 2021-06-13 at 21.25.07.gif…]()
+    * ![Simulator Screen Recording - iPhone 12 - 2021-06-13 at 21 25 07](https://user-images.githubusercontent.com/39159879/121807237-429deb00-cc8e-11eb-82d0-eb1328e817f2.gif)
   
 # 현재 진행중인 스크린
  - District
