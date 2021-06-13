@@ -1,3 +1,4 @@
+
 # 기술 스택
 - react-native, react-query
 
@@ -16,6 +17,7 @@
 # 현재 완성된 스크린
  - Intro
     * 로그인 전 인트로
+    * ![Uploading Simulator Screen Recording - iPhone 12 - 2021-06-13 at 21.25.07.gif…]()
   
 # 현재 진행중인 스크린
  - District
