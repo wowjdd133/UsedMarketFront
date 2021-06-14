@@ -7,9 +7,10 @@ export const fontSizes:FontSizesType = {
     subParagraph: '13px'
 }
 
-export const colors:ColorsType = {
+export const colors = {
     black: '#000000',
     grey: '#999999',
+    grey_light: '#c8c8c8',
     green: '#3cb46e',
     blue: '#000080',
     orange: '#FF8A3C',
@@ -40,6 +41,7 @@ export interface FontSizesType {
 export interface ColorsType {
     black: string;
     grey: string;
+    grey_light: string;
     green: string;
     blue: string;
     orange: string;
