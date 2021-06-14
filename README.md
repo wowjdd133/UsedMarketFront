@@ -19,4 +19,6 @@
   
 # 현재 진행중인 스크린
  - District
-    * 현재 위치를 기반으로 DistrictList를 불러옴. Permission denined일 시 이름으로 검색 가능.
+    * 현재 위치를 기반으로 DistrictList를 불러옴.
+    * Permission Denied, Not Found Error Screen
+    * 이름 기반 검색 기능 
