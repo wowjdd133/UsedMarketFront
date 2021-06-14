@@ -59,3 +59,14 @@ storiesOf("Icon", module)
             alignItems:'center'
         }
     }} />)
+    .add("lock", () => <IconComponent name="lock" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)

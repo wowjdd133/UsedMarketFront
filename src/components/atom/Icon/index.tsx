@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document" | "target-question-mark";
+export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document" | "target-question-mark" | "lock";
 
 interface ImageArray {
     name: ImageName;
@@ -55,6 +55,9 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
     }, {
         name: 'target-question-mark',
         uri: require('../../../assets/icons/target-question-mark.png')
+    }, {
+        name: 'lock',
+        uri: require('../../../assets/icons/lock.png')
     }];
 
     const getUri = (name:string) => {
