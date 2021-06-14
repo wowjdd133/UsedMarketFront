@@ -14,11 +14,13 @@ export interface DistrictListOrganismDataType {
 export interface DistrictListOrganismType {
     data?: DistrictListOrganismDataType[];
     onPress: (item:DistrictListOrganismDataType | any) => void;
+    text?: string;
 }
 
 interface DistrictListItemType {
     data: DistrictListOrganismDataType;
     onPress: (item:DistrictListOrganismDataType | any) => void;
+    text?: string;
 }
 
 const DistrictListItem = ({data, onPress}:DistrictListItemType) => {
@@ -40,7 +42,7 @@ const DistrictListItem = ({data, onPress}:DistrictListItemType) => {
     )
 }
 
-const DistrictListHeaderComponent = () => {
+const DistrictListHeaderComponent = ({text}:any) => {
     return (
         <Box>
             <TextAtom
@@ -51,7 +53,7 @@ const DistrictListHeaderComponent = () => {
                         weight: 'bold'
                     } 
                 }}
-                text={"근처 동네"}
+                text={text ?? "근처 동네"}
             />
         </Box>
     )
@@ -59,7 +61,8 @@ const DistrictListHeaderComponent = () => {
 
 const DistrictListOrganism = ({
     data,
-    onPress
+    onPress,
+    text
 }:DistrictListOrganismType) => {
     return (
         <WrapperComponent
@@ -79,7 +82,9 @@ const DistrictListOrganism = ({
                     />
                 )}
                 keyExtractor={(item) => item.id.toString()}
-                ListHeaderComponent={DistrictListHeaderComponent}
+                ListHeaderComponent={<DistrictListHeaderComponent
+                    text={text}
+                />}
             />
         </WrapperComponent>
     )

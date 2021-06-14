@@ -204,6 +204,7 @@ const DistrictScreen = () => {
                 onChangeText: handleChangeText,
                 value: text
             }}
+            text={text ? `'${text}' 검색 결과` : undefined}
             isLoading={isLoading || isSearchLoading}
             errorType={errorType}
             focus={focus}
