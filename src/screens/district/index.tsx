@@ -127,7 +127,7 @@ const DistrictScreen = () => {
                     });
                     setErrorType(ErrorTypeEnum.PERMISSION_NOT_GRANTED);
                 },
-                { enableHighAccuracy: true, timeout: 50000, maximumAge: 10000}
+                { enableHighAccuracy: true, maximumAge: 10000}
             )
         } else {
             setErrorType(ErrorTypeEnum.PERMISSION_NOT_GRANTED);
