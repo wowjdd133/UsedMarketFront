@@ -15,7 +15,7 @@ export interface InputExportStyleType {
 }
 
 interface InputProps {
-    wrapperStyle: StyleProp<ViewStyle>
+    wrapperStyle?: StyleProp<ViewStyle>
     placeholder?: string;
     value: string;
     focus?: boolean;

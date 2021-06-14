@@ -12,7 +12,7 @@ export interface TextStyleProps {
 }
 
 export interface TextExportType {
-    text: string;
+    text: string | React.ReactNode;
     onPress?: () => void;
 }
 
@@ -21,7 +21,7 @@ export interface TextExportStyleType {
 }
 
 export interface TextAtomProps {
-    text: string;
+    text: string | React.ReactNode;
     onPress?: () => void;
     style: {
         textStyle: TextStyleProps;
