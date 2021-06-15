@@ -77,6 +77,7 @@ const DistrictScreen = () => {
 
     React.useLayoutEffect(() => {
         if(searchData) {
+            console.log(searchData);
             if(searchData.length === 0) {
                 setErrorType(ErrorTypeEnum.NOT_FOUND);
             } else {
@@ -90,6 +91,7 @@ const DistrictScreen = () => {
                 }
             }))
         } else if(data) {
+            console.log(data);
             if(data.length === 0) {
                 setErrorType(ErrorTypeEnum.NOT_FOUND);
             } else {
@@ -127,7 +129,7 @@ const DistrictScreen = () => {
                     });
                     setErrorType(ErrorTypeEnum.PERMISSION_NOT_GRANTED);
                 },
-                { enableHighAccuracy: true, maximumAge: 10000}
+                { enableHighAccuracy: true, timeout: 50000, maximumAge: 10000}
             )
         } else {
             setErrorType(ErrorTypeEnum.PERMISSION_NOT_GRANTED);
@@ -149,6 +151,10 @@ const DistrictScreen = () => {
                 }
             } else {
                 const result = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+
+                console.log({
+                    result
+                });
             
                 if(result === RESULTS.GRANTED) {
                     return true;
