@@ -1,13 +1,14 @@
 import React, { ComponentType, createRef, ForwardRefExoticComponent, RefAttributes, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
 import WrapperComponent from '../../common/Wrapper';
-import { StyleProp, TextInputProps, ViewStyle, TextInput } from 'react-native';
+import { StyleProp, TextInputProps, ViewStyle, TextInput, KeyboardTypeOptions } from 'react-native';
 
 export interface InputExportType {
     placeholder?: string;
     value: string;
     onChange: (text:string) => void;
     focus?: boolean;
+    keyboardType?: KeyboardTypeOptions;
 }
 
 export interface InputExportStyleType {
@@ -20,9 +21,10 @@ interface InputProps {
     value: string;
     focus?: boolean;
     onChange: (text:string) => void;
+    keyboardType?: KeyboardTypeOptions
 }
 
-const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus }:InputProps) => {
+const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus, keyboardType = 'default' }:InputProps) => {
 
     const inputRef = createRef<TextInput>();
 
@@ -38,6 +40,7 @@ const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus }:InputPro
         >
             <Input 
                 ref={inputRef}
+                keyboardType={keyboardType}
                 onChangeText={onChange}
                 value={value}
                 placeholder={placeholder ?? undefined}

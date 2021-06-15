@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, KeyboardTypeOptions } from 'react-native';
 import { colors, SizeType } from '../../../styles/theme';
 import Icon, { IconExportStypeType, IconExportType, ImageName } from '../../atom/Icon';
 import { TextExportStyleType, TextExportType } from '../../atom/Text';
@@ -17,6 +17,7 @@ export interface AuthOrganismType {
             placeholder: string;
             value: any;
             onChange: (text:string) => void;
+            keyboardType?: KeyboardTypeOptions;
         }
         button: {
             onPress: () => void;
