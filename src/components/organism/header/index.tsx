@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import IconAtom from '../../atom/Icon/index';
 import { TextExportType } from '../../atom/Text';
 import TextAtom, { TextExportStyleType } from '../../atom/Text/index';
+import { colors, SizeType } from '../../../styles/theme';
 
 interface HeaderType {
     headerLeft?: React.ReactNode;
@@ -45,7 +46,11 @@ const HeaderOrganism = ({
             {
                 title ? <TextAtom
                     style={{
-                        textStyle:title.textStyle,
+                        textStyle:title.textStyle ?? {
+                            color: colors.black,
+                            size: SizeType.SMALL,
+                            weight: 'bold'
+                        },
                         wrapperStyle: {
                             justifyContent:'center',
                             alignItems:'center',

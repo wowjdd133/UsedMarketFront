@@ -13,10 +13,12 @@ function loadStories() {
   require('../src/components/molecules/IconButton/index.stories');
   require('../src/components/molecules/Searchbar/index.stories');
   require('../src/components/molecules/Submit/index.stories');
+  require('../src/components/organism/Auth/index.stories');
   require('../src/components/organism/districtList/index.stories');
   require('../src/components/organism/ErrorBox/index.stories');
   require('../src/components/organism/header/index.stories');
   require('../src/components/organism/Intro/index.stories');
+  require('../src/components/template/Auth/index.stories');
   require('../src/components/template/districtList/index.stories');
   require('../src/components/template/Intro/index.stories');
 }
@@ -31,10 +33,12 @@ const stories = [
   '../src/components/molecules/IconButton/index.stories',
   '../src/components/molecules/Searchbar/index.stories',
   '../src/components/molecules/Submit/index.stories',
+  '../src/components/organism/Auth/index.stories',
   '../src/components/organism/districtList/index.stories',
   '../src/components/organism/ErrorBox/index.stories',
   '../src/components/organism/header/index.stories',
   '../src/components/organism/Intro/index.stories',
+  '../src/components/template/Auth/index.stories',
   '../src/components/template/districtList/index.stories',
   '../src/components/template/Intro/index.stories',
 ];
