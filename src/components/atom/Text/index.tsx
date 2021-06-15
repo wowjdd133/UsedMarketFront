@@ -9,6 +9,7 @@ export interface TextStyleProps {
     color: string;
     center?: boolean;
     weight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900"
+    underline?: boolean;
 }
 
 export interface TextExportType {
@@ -18,6 +19,7 @@ export interface TextExportType {
 
 export interface TextExportStyleType {
     textStyle: TextStyleProps; 
+    wrapperStyle?: StyleProp<ViewStyle> 
 }
 
 export interface TextAtomProps {
@@ -51,6 +53,7 @@ const Text = styled.Text<TextStyleProps>`
     }};
 
     ${(props) => props.center ? 'text-align: center;' : ''}
+    ${(props) => props.underline ? 'text-decoration-line: underline;' : ''}
 
     color: ${props => props.color};
 

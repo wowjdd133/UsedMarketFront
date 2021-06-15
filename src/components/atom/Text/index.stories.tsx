@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { colors, commons } from '../../../styles/theme';
+import { colors, commons, SizeType } from '../../../styles/theme';
 
 import Text from './index';
 
@@ -8,7 +8,7 @@ storiesOf('Text', module)
     .add('text-big', () => <Text style={{
         textStyle: {
             color: colors.black,
-            size: 'big'
+            size: SizeType.BIG
         },
         wrapperStyle: {
             alignItems:'center',
@@ -20,7 +20,7 @@ storiesOf('Text', module)
     .add('text-medium', () => <Text style={{
         textStyle: {
             color: colors.black,
-            size: 'medium'
+            size: SizeType.MEDIUM
         },
         wrapperStyle: {
             alignItems:'center',
@@ -32,7 +32,7 @@ storiesOf('Text', module)
     .add('text-small', () => <Text style={{
         textStyle: {
             color: colors.black,
-            size: 'small'
+            size: SizeType.SMALL
         },
         wrapperStyle: {
             alignItems:'center',
@@ -44,7 +44,7 @@ storiesOf('Text', module)
     .add('text-big-orange', () => <Text style={{
         textStyle: {
             color: colors.orange,
-            size: 'big'
+            size: SizeType.BIG
         },
         wrapperStyle: {
             alignItems:'center',
@@ -56,7 +56,7 @@ storiesOf('Text', module)
     .add('text-big-bold-orange', () => <Text style={{
         textStyle: {
             color: colors.orange,
-            size: 'big',
+            size: SizeType.BIG,
             weight: 'bold'
         },
         wrapperStyle: {
