@@ -37,7 +37,7 @@ const CardMolecules = ({ icon, text, wrapperStyle,leftWrapperStyle, rightWrapper
             <TextAtom
                 {...text}
                 style={{
-                    textStyle: text.textStyle,
+                    textStyle: text.textStyle!,
                     wrapperStyle: rightWrapperStyle ?? {}
                 }}
             />

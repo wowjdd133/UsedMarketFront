@@ -18,7 +18,7 @@ export interface TextExportType {
 }
 
 export interface TextExportStyleType {
-    textStyle: TextStyleProps; 
+    textStyle?: TextStyleProps; 
     wrapperStyle?: StyleProp<ViewStyle> 
 }
 

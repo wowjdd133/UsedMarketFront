@@ -9,7 +9,7 @@ storiesOf('Submit', module)
     .add('submit', () => 
     <View
         style={{
-            height: 130,
+            height: 140,
             width: '100%',
         }}
     >
@@ -58,7 +58,7 @@ storiesOf('Submit', module)
                         style={{
                             textStyle: {
                                 color: colors.black,
-                                size: SizeType.SMALL
+                                size: SizeType.MORE_SMALL
                             }
                         }}
                         text="전화번호가 변경되었나요? "
@@ -67,7 +67,7 @@ storiesOf('Submit', module)
                         style={{
                             textStyle: {
                                 color: colors.black,
-                                size: SizeType.SMALL,
+                                size: SizeType.MORE_SMALL,
                                 underline: true
                             },
                         }}
@@ -102,7 +102,7 @@ storiesOf('Submit', module)
                         paddingVertical: '10px',
                         borderStyle: {
                             color: 'transparent',
-                            radius: 4
+                            radius: 4,
                         },
                         paddingHorizontal: '6px',
                     },
@@ -126,7 +126,7 @@ storiesOf('Submit', module)
                         borderWidth: 0.5,
                         borderRadius: 4,
                         borderColor: colors.grey,
-                        paddingLeft: 7
+                        paddingLeft: 7,
                     },
                 }}
                 text={{
@@ -136,7 +136,7 @@ storiesOf('Submit', module)
                                 style={{
                                     textStyle: {
                                         color: colors.black,
-                                        size: SizeType.SMALL
+                                        size: SizeType.MORE_SMALL
                                     }
                                 }}
                                 text="전화번호가 변경되었나요? "
@@ -145,7 +145,8 @@ storiesOf('Submit', module)
                                 style={{
                                     textStyle: {
                                         color: colors.black,
-                                        size: SizeType.SMALL
+                                        size: SizeType.MORE_SMALL,
+                                        underline:true
                                     }
                                 }}
                                 text="이메일로 계정 찾기"
@@ -156,7 +157,88 @@ storiesOf('Submit', module)
                     textStyle:{
                         color: colors.black,
                         size: SizeType.SMALL,
-                        underline:true
+                    },
+                    onPress:() => {}
+                }}
+            />
+    </View>
+    )
+    .add('submit-email', () => 
+    <View
+        style={{
+            width: '100%',
+            height: 130
+        }}
+    >
+        <SubmitMolecules
+                wrapperStyle={{
+                    flex:1,
+                    marginHorizontal:15
+                }}
+                button={{
+                    buttonStyle: {
+                        color: colors.orange,
+                        paddingVertical: '10px',
+                        borderStyle: {
+                            color: 'transparent',
+                            radius: 4,
+                        },
+                        paddingHorizontal: '6px',
+                    },
+                    disabled: true,
+                    onPress: () => {},
+                    text: "인증메일 받기",
+                    textStyle: {
+                        color: colors.white,
+                        size: SizeType.SMALL,
+                        weight: 'bold',
+                        center: true
+                    },
+                }}
+                input={{
+                    onChange: (text:string) => {},
+                    value:"",
+                    placeholder:"이메일 주소",
+                    wrapperStyle: {
+                        width:'100%',
+                        height: 42,
+                        borderWidth: 0.5,
+                        borderRadius: 4,
+                        borderColor: colors.grey,
+                        paddingLeft: 7,
+                    },
+                }}
+                text={{
+                    text: (
+                        <Text
+                            style={{
+                            }}
+                        >
+                            <TextAtom
+                                style={{
+                                    textStyle: {
+                                        color: colors.black,
+                                        size: SizeType.MORE_SMALL
+                                    }
+                                }}
+                                text="이메일을 등록한 적이 없으세요? "
+                            />
+                            <TextAtom
+                                style={{
+                                    textStyle: {
+                                        color: colors.black,
+                                        size: SizeType.MORE_SMALL,
+                                        underline:true
+                                    }
+                                }}
+                                text="문의하기"
+                                onPress={() => {}}
+                            />
+                        </Text>
+                    ),
+                    textStyle:{
+                        color: colors.black,
+                        size: SizeType.SMALL,
                     },
                     onPress:() => {}
                 }}

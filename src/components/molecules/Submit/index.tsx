@@ -7,10 +7,16 @@ import TextAtom, { TextExportStyleType, TextExportType } from '../../atom/Text/i
 
 import { StyleProp, ViewStyle } from 'react-native';
 
+export interface SubmitMoleculesExportType {
+    input: InputExportStyleType & InputExportType;
+    button: ButtonExportType & ButtonExportStyleType
+    text?: TextExportType & TextExportStyleType;
+}
+
 interface SubmitMoleculesType {
     input: InputExportStyleType & InputExportType;
     button: ButtonExportType & ButtonExportStyleType
-    text: TextExportType & TextExportStyleType;
+    text?: TextExportType & TextExportStyleType;
     wrapperStyle?: StyleProp<ViewStyle>
 }
 
@@ -29,19 +35,21 @@ const SubmitMolecules = ({input, button, wrapperStyle, text}:SubmitMoleculesType
                     buttonStyle: button.buttonStyle,
                     textStyle: button.textStyle,
                     wrapperStyle: {
-                        marginTop: 10,
-                        flex: 1,
+                        marginTop: 15,
                         width:'100%'
                     }
                 }}
             />
 
             {
-                text ? (
+                text !== undefined ? (
                     <TextAtom
                         {...text}
                         style={{
-                            textStyle: text.textStyle
+                            textStyle: text.textStyle!,
+                            wrapperStyle: text.wrapperStyle ?? {
+                                marginTop: 14
+                            }
                         }}
                     />
                 ) : null
