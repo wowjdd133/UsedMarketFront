@@ -26,7 +26,7 @@ interface DistrictListItemType {
 const DistrictListItem = ({data, onPress}:DistrictListItemType) => {
     return (
         <ItemBox
-            onPress={onPress}
+            onPress={() => onPress(data.id)}
         >
             <TextAtom
                 style={{

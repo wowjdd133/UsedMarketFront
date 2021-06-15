@@ -136,6 +136,12 @@ const DistrictScreen = () => {
         }
     }, [errorType]);
 
+    const handlePressDistrictItem = React.useCallback((id:number) => {
+        navigation.navigate('PhoneAuth', {
+            districtId: id
+        });
+    }, [navigation])
+
     const askGeoloPermission = React.useCallback(async () => {
         try {
             if(Platform.OS === 'ios') {
@@ -202,7 +208,7 @@ const DistrictScreen = () => {
     return (
         <DistrictListTemplate
             data={districtList}
-            onPress={() => {}}
+            onPress={handlePressDistrictItem}
             onPressButton={() => {
                 getCurrentPosition()
             }} 
