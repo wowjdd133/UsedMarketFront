@@ -108,7 +108,6 @@ const DistrictScreen = () => {
 
     React.useLayoutEffect(() => {
         if(error || searchError) {
-            //에러시 상단 stickbar 추가.
             setErrorType(ErrorTypeEnum.NOT_FOUND);
         }
     }, [error, searchError])
