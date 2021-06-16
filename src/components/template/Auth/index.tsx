@@ -3,6 +3,7 @@ import AuthOrganism, { AuthOrganismType } from '../../organism/Auth/index';
 import WrapperComponent from '../../common/Wrapper';
 import { StyleProp, ViewStyle } from 'react-native';
 import HeaderOrganism from '../../organism/header/index';
+import LoadingCommon from '../../common/Loading';
 
 interface AuthTemplateType {
     authOrganism: AuthOrganismType;
@@ -10,33 +11,42 @@ interface AuthTemplateType {
         title: string;
     }
     wrapperStyle?: StyleProp<ViewStyle>
+    isLoading?: boolean;
 }
 
 const AuthTemplate = ({
     authOrganism,
     wrapperStyle,
-    header
+    header,
+    isLoading
 }:AuthTemplateType) => {
     return (
-        <WrapperComponent
-            style={wrapperStyle ?? {
+        <>
+            {
+                isLoading ? (
+                    <LoadingCommon/>
+                ) : null
+            }
+            <WrapperComponent
+                style={wrapperStyle ?? {
 
-            }}
-        >
-            <HeaderOrganism
-                title={{
-                    text: header.title
                 }}
-            />
-            <AuthOrganism
-                wrapperStyle={{
-                    marginTop: 25,
-                    width: '90%',
-                    alignSelf: 'center'
-                }}
-                {...authOrganism}
-            />
-        </WrapperComponent>
+            >
+                <HeaderOrganism
+                    title={{
+                        text: header.title
+                    }}
+                />
+                <AuthOrganism
+                    wrapperStyle={{
+                        marginTop: 25,
+                        width: '90%',
+                        alignSelf: 'center'
+                    }}
+                    {...authOrganism}
+                />
+            </WrapperComponent>
+        </>
     )
 }
 

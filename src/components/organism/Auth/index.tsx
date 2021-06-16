@@ -36,6 +36,7 @@ export interface AuthOrganismType {
             keyboardType?: KeyboardTypeOptions;
             wrapperStyle?: StyleProp<ViewStyle>;
             maxLength?: number;
+            errorMessage?: string;
         },
         button: {
             onPress: () => void;
@@ -134,7 +135,7 @@ const AuthOrganism = ({card, wrapperStyle, submit, code}:AuthOrganismType) => {
                                 height: 42,
                                 borderWidth: 0.5,
                                 borderRadius: 4,
-                                borderColor: colors.grey,
+                                borderColor: code.input.errorMessage ? colors.red : colors.grey,
                                 paddingLeft: 7
                             },
                         }}

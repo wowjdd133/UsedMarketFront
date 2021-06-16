@@ -37,7 +37,7 @@ const SubmitMolecules = ({input, button, wrapperStyle, text}:SubmitMoleculesType
                     buttonStyle: button.buttonStyle,
                     textStyle: button.textStyle,
                     wrapperStyle: {
-                        marginTop: 15,
+                        marginTop: input.errorMessage ? 30 : 15,
                         width:'100%'
                     }
                 }}

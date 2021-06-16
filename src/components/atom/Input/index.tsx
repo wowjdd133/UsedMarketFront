@@ -1,7 +1,9 @@
 import React, { ComponentType, createRef, ForwardRefExoticComponent, RefAttributes, useEffect, useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
 import WrapperComponent from '../../common/Wrapper';
+import TextAtom from '../Text/index';
 import { StyleProp, TextInputProps, ViewStyle, TextInput, KeyboardTypeOptions } from 'react-native';
+import { colors, SizeType } from '../../../styles/theme';
 
 export interface InputExportType {
     placeholder?: string;
@@ -10,6 +12,7 @@ export interface InputExportType {
     focus?: boolean;
     keyboardType?: KeyboardTypeOptions;
     maxLength?: number;
+    errorMessage?: string;
 }
 
 export interface InputExportStyleType {
@@ -24,9 +27,10 @@ interface InputProps {
     onChange: (text:string) => void;
     keyboardType?: KeyboardTypeOptions
     maxLength?: number;
+    errorMessage?: string;
 }
 
-const InputAtom = ({ wrapperStyle, placeholder, onChange,maxLength, value,focus, keyboardType = 'default' }:InputProps) => {
+const InputAtom = ({ wrapperStyle, placeholder, errorMessage, onChange, maxLength, value,focus, keyboardType = 'default' }:InputProps) => {
 
     const inputRef = createRef<TextInput>();
 
@@ -51,6 +55,22 @@ const InputAtom = ({ wrapperStyle, placeholder, onChange,maxLength, value,focus,
                 autoCompleteType="off"
                 autoCorrect={false}
             />
+            {
+                errorMessage ? (
+                    <TextAtom
+                        style={{
+                            textStyle:{
+                                color:colors.red,
+                                size: SizeType.MORE_SMALL
+                            },
+                            wrapperStyle: {
+                                marginTop: 6
+                            }
+                        }}
+                        text={errorMessage}
+                    />
+                ) : null
+            }
         </WrapperComponent>
     )
 }

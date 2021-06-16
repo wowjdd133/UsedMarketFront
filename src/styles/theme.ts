@@ -14,7 +14,8 @@ export const colors = {
     green: '#3cb46e',
     blue: '#000080',
     orange: '#FF8A3C',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    red: '#ff0000'
 }
 
 export const commons:CommonsType = {
@@ -46,6 +47,7 @@ export interface ColorsType {
     blue: string;
     orange: string;
     white: string;
+    red: string;
 }
 
 export interface CommonsType {
