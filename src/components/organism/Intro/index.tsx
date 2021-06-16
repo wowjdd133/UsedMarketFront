@@ -3,7 +3,7 @@ import WrapperComponent from '../../common/Wrapper';
 import TextComponent from '../../atom/Text'
 import LottieView from '../../atom/LottieView';
 import styled from 'styled-components/native';
-import {colors} from '../../../styles/theme';
+import {colors, SizeType} from '../../../styles/theme';
 
 export interface IntroOrganismType {
     title: string;
@@ -53,7 +53,7 @@ const IntroOrganism = ({ title, description, subTitle }:IntroOrganismType) => {
                     style={{
                         textStyle: {
                             color: colors.black,
-                            size: 'small',
+                            size: SizeType.SMALL,
                             weight: '300'
                         },
                         wrapperStyle: {

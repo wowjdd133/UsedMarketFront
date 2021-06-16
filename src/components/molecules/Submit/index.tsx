@@ -14,13 +14,14 @@ export interface SubmitMoleculesExportType {
 }
 
 interface SubmitMoleculesType {
-    input: InputExportStyleType & InputExportType;
+    input: InputExportStyleType & InputExportType
     button: ButtonExportType & ButtonExportStyleType
     text?: TextExportType & TextExportStyleType;
     wrapperStyle?: StyleProp<ViewStyle>
 }
 
 const SubmitMolecules = ({input, button, wrapperStyle, text}:SubmitMoleculesType) => {
+
     return (
         <WrapperComponent
             style={wrapperStyle ?? {width:'100%'}}
@@ -29,6 +30,7 @@ const SubmitMolecules = ({input, button, wrapperStyle, text}:SubmitMoleculesType
             <InputAtom
                 {...input}
             />
+
             <ButtonAtom
                 {...button}
                 style={{
@@ -54,7 +56,6 @@ const SubmitMolecules = ({input, button, wrapperStyle, text}:SubmitMoleculesType
                     />
                 ) : null
             }
-            
            
         </WrapperComponent>
     )

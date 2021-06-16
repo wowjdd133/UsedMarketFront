@@ -9,6 +9,7 @@ export interface InputExportType {
     onChange: (text:string) => void;
     focus?: boolean;
     keyboardType?: KeyboardTypeOptions;
+    maxLength?: number;
 }
 
 export interface InputExportStyleType {
@@ -22,9 +23,10 @@ interface InputProps {
     focus?: boolean;
     onChange: (text:string) => void;
     keyboardType?: KeyboardTypeOptions
+    maxLength?: number;
 }
 
-const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus, keyboardType = 'default' }:InputProps) => {
+const InputAtom = ({ wrapperStyle, placeholder, onChange,maxLength, value,focus, keyboardType = 'default' }:InputProps) => {
 
     const inputRef = createRef<TextInput>();
 
@@ -43,6 +45,7 @@ const InputAtom = ({ wrapperStyle, placeholder, onChange, value,focus, keyboardT
                 keyboardType={keyboardType}
                 onChangeText={onChange}
                 value={value}
+                maxLength={maxLength}
                 placeholder={placeholder ?? undefined}
                 autoCapitalize="none"
                 autoCompleteType="off"
