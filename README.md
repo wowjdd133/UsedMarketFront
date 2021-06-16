@@ -16,9 +16,15 @@
  
 # 현재 완성된 스크린
  - Intro(로그인 전 인트로)
-  
-# 현재 진행중인 스크린
  - District
     * 현재 위치를 기반으로 DistrictList를 불러옴.
     * Permission Denied, Not Found Error Screen
     * 이름 기반 검색 기능 
+  
+# 현재 진행중인 스크린
+ - AuthPhone
+    * 휴대폰 번호로 인증(완료)
+    * 인증 문자 받을 시 5분 카운트(완료)
+    * 에러시 스낵바
+    * 하루 최대 6회
+    * 10초마다 보낼 수 있게.
