@@ -13,6 +13,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import StoryBookUIRoot from './storybook';
 import Navigation from './src/navigation/index';
+import { AuthProvider } from './src/contexts/AuthContext';
 import { QueryClientProvider, QueryClient } from 'react-query'
 
 const queryClient = new QueryClient();
@@ -22,10 +23,12 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <ThemeProvider theme={theme}>
-          {/* <StoryBookUIRoot/> */}
-          <Navigation/> 
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider theme={theme}>
+            <StoryBookUIRoot/>
+            {/* <Navigation/>  */}
+          </ThemeProvider>
+        </AuthProvider>
       </NavigationContainer>
     </QueryClientProvider>
     

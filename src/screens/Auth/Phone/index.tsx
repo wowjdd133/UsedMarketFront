@@ -12,6 +12,7 @@ import { useTimerHook } from '../../../hooks/timer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Snackbar from 'react-native-snackbar';
 import { ErrorTypeEnum } from '../../../enums/Error.type.enum';
+import { useAuthDispatch } from '../../../contexts/AuthContext';
 
 const _LIMIT_SECOND = 300;
 const _MAX_COUNT = 30;
@@ -27,6 +28,7 @@ const PhoneAuthScreen = () => {
     const [deviceId, setDeviceId] = React.useState('');
     const [code, setCode] = React.useState('');
     const [errorType, setErrorType] = React.useState<ErrorTypeEnum>();
+    const dispatch = useAuthDispatch();
     const { handleReset, isActive, timerSecond : second, setIsActive} = useTimerHook(_LIMIT_SECOND);
     const {isLoading : isMatchCodeLoading, data, error, refetch } = useQuery('matchCode', async () => {
         const data = await axios.get('http://localhost:3000/auth/code/match', {
@@ -35,12 +37,28 @@ const PhoneAuthScreen = () => {
                 code
             }
         });
-        console.log({
-            data
-        });
     }, {
         enabled: false,
-        retry: false
+        retry: false,
+        onSuccess:async () => {
+            try {
+                const data = await axios.post('http://localhost:3000/auth/register', {
+                    phoneNumber: phoneNumber.replace(/ /gi, ""),
+                    deviceId,
+                    districtId
+                })
+
+                if(data) {
+                    dispatch({
+                        type: 'SIGN_IN'
+                    });
+                }
+
+                console.log(data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
     })
 
     React.useLayoutEffect(() => {
