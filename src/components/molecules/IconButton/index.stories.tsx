@@ -31,3 +31,29 @@ storiesOf('IconButton', module)
             }
         }}
     />)
+    .add('icon-button-disabled', () => <IconButtonMolecules
+        wrapperStyle={{
+            width:'100%',
+            justifyContent:'center',
+            alignItems:'center'
+        }}
+        button={{
+            disabled: true,
+            onPress: () => {},
+            buttonStyle: {
+                color: 'transparent',
+                paddingHorizontal: '6px',
+                paddingVertical: '6px',
+            },
+        }}
+        icon={{
+            name: 'user-profile',
+        }}
+        text={{
+            text: "button",
+            textStyle: { 
+                color: colors.black,
+                size: SizeType.MEDIUM,
+            }
+        }}
+    />)

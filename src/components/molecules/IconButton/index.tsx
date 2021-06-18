@@ -1,7 +1,5 @@
 import React from 'react';
-
-import styled from 'styled-components/native';
-import { colors } from '../../../styles/theme';
+import { colors, SizeType } from '../../../styles/theme';
 import ButtonAtom, { ButtonExportStyleType, ButtonExportType } from '../../atom/Button/index';
 import IconAtom, { IconExportStypeType, IconExportType } from '../../atom/Icon/index';
 import TextAtom, { TextExportStyleType, TextExportType } from '../../atom/Text/index';
@@ -22,7 +20,11 @@ const IconButtonMolecules = ({button, icon, text, isIconRight = false, wrapperSt
     >
         <ButtonAtom
             style={{
-                buttonStyle: button.buttonStyle,
+                buttonStyle: button.buttonStyle ?? {
+                    color: 'transparent',
+                    paddingHorizontal: '0px',
+                    paddingVertical: '0px',
+                },
             }} 
             {...button}
         >
@@ -44,7 +46,10 @@ const IconButtonMolecules = ({button, icon, text, isIconRight = false, wrapperSt
             <TextAtom
                 text={text.text}
                 style={{
-                    textStyle: text.textStyle
+                    textStyle: text.textStyle ?? {
+                        color: colors.black,
+                        size: SizeType.SMALL
+                    }
                 }}
             />
         </ButtonAtom>    

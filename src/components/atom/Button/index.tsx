@@ -6,21 +6,21 @@ import WrapperComponent from '../../common/Wrapper';
 import TextComponent, { TextStyleProps } from '../Text';
 
 export interface ButtonExportType {
-    onPress: (props:any) => void;
+    onPress?: (props:any) => void;
     text?: string;
-    disabled: boolean;
+    disabled?: boolean;
 }
 
 export interface ButtonExportStyleType {
     textStyle?: TextStyleProps;
-    buttonStyle: ButtonStyleProps;
+    buttonStyle?: ButtonStyleProps;
 }
 
 interface ButtonProps {
     style: StyleProps;
-    onPress: (props:any) => void;
+    onPress?: (props:any) => void;
     text?: string;
-    disabled: boolean;
+    disabled?: boolean;
     children?: React.ReactNode;
 }
 
@@ -90,7 +90,7 @@ const ButtonAtom = ({disabled, onPress, style, text, children}:ButtonProps) => {
 }
 
 const Button = styled.TouchableOpacity<ButtonStyleProps>`
-    background-color: ${(props) => props.disabled ? props.theme.colors.grey_light : props.color};
+    background-color: ${(props) => props.disabled && props.onPress ? props.theme.colors.grey_light : props.color};
     border: ${(props) => props.borderStyle?.isShow ? `1px solid ${props.borderStyle?.color}` : '0px'}
     padding-vertical: ${(props) => props.paddingVertical};
     padding-horizontal: ${(props) => props.paddingHorizontal};
