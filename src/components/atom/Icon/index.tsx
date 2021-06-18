@@ -23,7 +23,7 @@ interface IconStyleProps {
     iconStyle?: StyleProp<ImageStyle>;
 }
 
-export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document" | "target-question-mark" | "lock";
+export type ImageName = "user-profile" | "search" | "left-arrow" | "target" | "home" | "find-document" | "target-question-mark" | "lock" | "chat" | "heart";
 
 interface ImageArray {
     name: ImageName;
@@ -58,6 +58,12 @@ const IconAtom = ({ name, style, onPress }:IconProps) => {
     }, {
         name: 'lock',
         uri: require('../../../assets/icons/lock.png')
+    }, {
+        name: 'chat',
+        uri: require('../../../assets/icons/chat.png')
+    }, {
+        name: 'heart',
+        uri: require('../../../assets/icons/heart.png')
     }];
 
     const getUri = (name:string) => {

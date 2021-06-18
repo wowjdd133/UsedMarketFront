@@ -70,3 +70,25 @@ storiesOf("Icon", module)
             alignItems:'center'
         }
     }} />)
+    .add("heart", () => <IconComponent name="heart" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)
+    .add("chat", () => <IconComponent name="chat" style={{
+        iconStyle: {
+            width: 40,
+            height: 40
+        },
+        wrapperStyle: {
+            flex: 1,
+            justifyContent:'center',
+            alignItems:'center'
+        }
+    }} />)
