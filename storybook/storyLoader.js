@@ -6,6 +6,7 @@
 function loadStories() {
   require('../src/components/atom/Button/index.stories');
   require('../src/components/atom/Icon/index.stories');
+  require('../src/components/atom/Image/index.stories');
   require('../src/components/atom/Input/index.stories');
   require('../src/components/atom/LottieView/index.stories');
   require('../src/components/atom/Text/index.stories');
@@ -18,6 +19,7 @@ function loadStories() {
   require('../src/components/organism/ErrorBox/index.stories');
   require('../src/components/organism/header/index.stories');
   require('../src/components/organism/Intro/index.stories');
+  require('../src/components/organism/Product/index.stories');
   require('../src/components/template/Auth/index.stories');
   require('../src/components/template/districtList/index.stories');
   require('../src/components/template/Intro/index.stories');
@@ -26,6 +28,7 @@ function loadStories() {
 const stories = [
   '../src/components/atom/Button/index.stories',
   '../src/components/atom/Icon/index.stories',
+  '../src/components/atom/Image/index.stories',
   '../src/components/atom/Input/index.stories',
   '../src/components/atom/LottieView/index.stories',
   '../src/components/atom/Text/index.stories',
@@ -38,6 +41,7 @@ const stories = [
   '../src/components/organism/ErrorBox/index.stories',
   '../src/components/organism/header/index.stories',
   '../src/components/organism/Intro/index.stories',
+  '../src/components/organism/Product/index.stories',
   '../src/components/template/Auth/index.stories',
   '../src/components/template/districtList/index.stories',
   '../src/components/template/Intro/index.stories',
