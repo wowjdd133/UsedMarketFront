@@ -2,10 +2,14 @@ import React, { createContext, Dispatch, useContext, useReducer } from 'react';
 
 type State = {
     isSignIn: boolean;
+    districtId: number;
+    userId: number;
+    districtName: string;
 }
 
 type Action = {
     type: 'SIGN_IN';
+    state?: State
 } | {
     type: 'SIGN_OUT'
 }
@@ -19,10 +23,15 @@ const reducer = (state: State, action: Action):State => {
     switch(action.type) {
         case 'SIGN_IN':
             return {
+                ...state,
+                ...action.state,
                 isSignIn: true
             }
         case 'SIGN_OUT':
             return {
+                districtId: 0,
+                userId: 0,
+                districtName: '',
                 isSignIn: false
             }
     }
@@ -30,7 +39,10 @@ const reducer = (state: State, action: Action):State => {
 
 export const AuthProvider = ({children}: {children:React.ReactNode}) => {
     const [state, dispatch] = useReducer(reducer, {
-        isSignIn: false
+        isSignIn: false,
+        districtId: 0,
+        userId: 0,
+        districtName: ''
     });
 
     return (
@@ -50,6 +62,6 @@ export function useAuthState() {
 
 export function useAuthDispatch() {
     const dispatch = useContext(AuthDispatchContext);
-    if(!dispatch) throw new Error('authProvider not find')
+    if(!dispatch) throw new Error('authProvider not find');
     return dispatch;
 }

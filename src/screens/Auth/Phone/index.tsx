@@ -17,6 +17,17 @@ import { useAuthDispatch } from '../../../contexts/AuthContext';
 const _LIMIT_SECOND = 300;
 const _MAX_COUNT = 30;
 
+interface RegisterOrLoginReturnType {
+    data: {
+        id: number,
+        district: {
+            id: number;
+            sig_eng_name: string;
+            sig_kor_name: string;
+        }
+    }
+}
+
 const PhoneAuthScreen = () => {
 
     const route:any = useRoute();
@@ -42,21 +53,55 @@ const PhoneAuthScreen = () => {
         retry: false,
         onSuccess:async () => {
             try {
-                const data = await axios.post('http://localhost:3000/auth/register', {
+                const {data}: RegisterOrLoginReturnType= await axios.post('http://localhost:3000/auth/register', {
                     phoneNumber: phoneNumber.replace(/ /gi, ""),
                     deviceId,
                     districtId
                 })
 
+                console.log(data);
+
                 if(data) {
                     dispatch({
-                        type: 'SIGN_IN'
+                        type: 'SIGN_IN',
+                        state: {
+                            districtId: data.district.id,
+                            districtName: data.district.sig_kor_name,
+                            isSignIn: true,
+                            userId: data.id
+                        }
                     });
                 }
-
-                console.log(data);
             } catch (err) {
                 console.log(err);
+                if(err?.response?.data?.status === ErrorTypeEnum.PHONE_NUMBER_ALREADY_EXIST) {
+                    try {
+                        const {data:loginData}:RegisterOrLoginReturnType = await axios.post('http://localhost:3000/auth/login', {
+                            phoneNumber: phoneNumber.replace(/ /gi, ""),
+                            deviceId,
+                        });
+
+                        if(loginData) {
+                            console.log(loginData);
+                            dispatch({
+                                type: 'SIGN_IN',
+                                state: {
+                                    districtId: loginData.district.id,
+                                    districtName: loginData.district.sig_kor_name,
+                                    isSignIn: true,
+                                    userId: loginData.id
+                                }
+                            });
+                        }
+
+                    } catch (err) {
+                        //error
+                        console.log(err);
+                        console.log('실패');
+                    }
+                } else {
+                    //error
+                }
             }
         }
     })
