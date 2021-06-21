@@ -21,7 +21,7 @@
     * Permission Denied, Not Found Error Screen
     * 이름 기반 검색 기능 
  - AuthPhone
-    * 휴대폰 번호로 인증
+    * 휴대폰 번호, device id로 회원가입 또는 로그인
     * 인증 문자 받을 시 5분 카운트
     * 10초마다 보낼 수 있게.
     * 에러 처리 스낵바
