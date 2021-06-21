@@ -32,11 +32,18 @@ const AuthTemplate = ({
 
                 }}
             >
-                <HeaderOrganism
-                    title={{
-                        text: header.title
+                <WrapperComponent
+                    style={{
+                        width: '90%',
+                        alignSelf: 'center'
                     }}
-                />
+                >
+                    <HeaderOrganism
+                        title={{
+                            text: header.title
+                        }}
+                    />
+                </WrapperComponent>
                 <AuthOrganism
                     wrapperStyle={{
                         marginTop: 25,

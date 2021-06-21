@@ -10,24 +10,31 @@ interface HeaderType {
     headerLeft?: React.ReactNode;
     headerRgiht?: React.ReactNode;
     title?: TextExportType & TextExportStyleType;
+    borderBottom?: number;
+    paddingBottom?: number;
 }
 
 const HeaderOrganism = ({
     headerLeft,
     headerRgiht,
-    title
+    title,
+    borderBottom,
+    paddingBottom
 }:HeaderType) => {
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     const handlePressLeftButton = React.useCallback(() => {
-        // console.log(1);
-        navigation.goBack();
-    }, [navigation])
-    // }, [])
+        console.log(1);
+        // navigation.goBack();
+    // }, [navigation])
+    }, [])
 
     return (
-        <Header>
+        <Header
+            borderBottom={borderBottom}
+            paddingBottom={paddingBottom}
+        >
             <HeaderLeft
                 isTitleExist={title ? true : false}
             >
@@ -71,15 +78,26 @@ const HeaderOrganism = ({
     )
 }
 
-const Header = styled.View`
+const Header = styled.View<{
+    borderBottom?: number
+    paddingBottom?: number
+}>`
     flex-direction: row;
     align-items: center;
     align-self: center;
-    width: 95%
+    width: 100%;
+    ${props => props.borderBottom ? `
+        border-bottom-width: ${props.borderBottom}px;
+        border-bottom-color: ${props.theme.colors.grey_light};
+    ` : ''}
+    ${props => props.paddingBottom ? `
+        padding-bottom: ${props.paddingBottom}px;
+    ` : ''}
 `
 
 const HeaderLeft = styled.View<{
     isTitleExist: boolean
+    
 }>`
     justify-content: flex-start;
     ${props => props.isTitleExist ? 'flex:1' : ''}
@@ -88,7 +106,8 @@ const HeaderLeft = styled.View<{
 const HeaderRight = styled.View<{
     isTitle: boolean
 }>`
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-end;
     flex: 1;
 
 `

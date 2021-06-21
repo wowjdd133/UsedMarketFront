@@ -76,21 +76,25 @@ const DistrictListTemplate = ({isLoading, errorType, onPressErrorText, onPressBu
             <WrapperComponent
                 style={{flex: 1, width:'100%'}}
             >
-                <HeaderOrganism
-                    headerRgiht={
-                        <SearchbarMoleCules
-                            icon={{
-                                name: 'search'
-                            }}
-                            input={{
-                                onChange: input.onChangeText,
-                                value: input.value,
-                                placeholder:"검색어를 입력하세요",
-                                focus: focus
-                            }}
-                        />
-                    }
-                />
+                <WrapperComponent
+                    style={{width:'95%', alignSelf:'center'}}
+                >
+                    <HeaderOrganism
+                        headerRgiht={
+                            <SearchbarMoleCules
+                                icon={{
+                                    name: 'search'
+                                }}
+                                input={{
+                                    onChange: input.onChangeText,
+                                    value: input.value,
+                                    placeholder:"검색어를 입력하세요",
+                                    focus: focus
+                                }}
+                            />
+                        }
+                    />
+                </WrapperComponent>
                 <IconButtonMolecules
                     button={{
                         onPress:onPressButton,
